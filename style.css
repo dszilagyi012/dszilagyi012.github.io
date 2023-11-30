@@ -53,4 +53,30 @@ body{
 
 .content {
     margin-top: 10vh;
+    font-size: 20px;
+}
+
+.technologies .icons{
+    width: 420px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.technologiess .icons .item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #383e45;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.technologies .icons .item i{
+    font-size: 34px;
+    color: #fff;
 }
