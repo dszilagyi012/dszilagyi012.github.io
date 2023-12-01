@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hi! 👋</title>
+        <title>Szia! 👋</title>
         <link rel="stylesheet" href="/style.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
@@ -17,6 +17,22 @@
                     }, 1000);
                 });
             });
+            $(document).ready(function(){
+                $('a[href*="#technologies"]').on('click', function(e){
+                    e.preventDefault();
+                    $('html, body').animate({
+                      scrollTop: $($(this).attr('href')).offset().top
+                    }, 1000);
+                });
+            });
+            $(document).ready(function(){
+                $('a[href*="#links"]').on('click', function(e){
+                    e.preventDefault();
+                    $('html, body').animate({
+                      scrollTop: $($(this).attr('href')).offset().top
+                    }, 1000);
+                });
+            });
         </script>
     </head>
     <body>
@@ -24,9 +40,9 @@
             <h2>Dániel Szilágyi</h2>
             <ul>
                 <li class="navbar-li"><a href="#" class="navbar-a">Főoldal</a></li>
-                <li class="navbar-li"><a href="#technologies" class="navbar-a">Technológiák</a></li>
                 <li class="navbar-li"><a href="#about" class="navbar-a">Rólam</a></li>
-                <li class="navbar-li"><a href="https://linktr.ee/dszilagyi012"
+                <li class="navbar-li"><a href="#technologies" class="navbar-a">Technológiák</a></li>
+                <li class="navbar-li"><a href="#links"
                         class="navbar-a">Linkek</a></li>
                 <li class="navbar-li"><a href="/" class="navbar-a">English</a></li>
             </ul>
