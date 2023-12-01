@@ -345,6 +345,39 @@ footer .cols .links-col a:hover{
     }
   }
 
+  @media screen and (min-width: 716px) {
+    .menu-icon{
+        display: none;
+    }
+  }
+  @media screen and (max-width: 715px) {
+    .navbar ul {
+        display: none; /* Normál ul elrejtése kisebb képernyőkön */
+      }
+      .menu-icon {
+        display: auto;
+      }
+      .mobile-menu {
+        background-color: #1c1c1c;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center; /* A tartalom középre igazítása */
+        align-items: center;
+        overflow: hidden;
+      }
+      .mobile-menu ul {
+        list-style-type: none;
+      }
+      
+      
+  }
+  @media screen and (max-width: 412px) {
+    * {
+        font-size: 20px;
+    }
+  }
+
+
 /*
 .text {
     width: 50vh;

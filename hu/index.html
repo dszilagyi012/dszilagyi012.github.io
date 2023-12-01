@@ -52,10 +52,12 @@
         });
         </script>
 
-        <div class="container">
+        <div class="container" style="display: none;">
+
+
             <header class="navbar">
-                <h2>Dániel Szilágyi</h2>
-                <ul>
+                <h2 class="titletext">Dániel Szilágyi</h2>
+                <ul class="nav-ul">
                     <li class="navbar-li"><a href="#" class="navbar-a">Főoldal</a></li>
                     <li class="navbar-li"><a href="#about" class="navbar-a">Rólam</a></li>
                     <li class="navbar-li"><a href="#technologies" class="navbar-a">Technológiák</a></li>
@@ -63,7 +65,30 @@
                             class="navbar-a">Linkek</a></li>
                     <li class="navbar-li"><a href="/" class="navbar-a">English</a></li>
                 </ul>
+                <div class="menu-icon">
+                    <i class='bx bx-menu'></i>
+                </div>
             </header>
+
+
+            <div class="mobile-menu" style="display: none;">
+                <ul>
+                    <li><a href="#" class="navbar-a">Főoldal</a></li>
+                    <li><a href="#about" class="navbar-a">Rólam</a></li>
+                    <li><a href="#technologies" class="navbar-a">Technológiák</a></li>
+                    <li><a href="#links" class="navbar-a">Linkek</a></li>
+                    <li><a href="/" class="navbar-a">English</a></li>
+                </ul>
+                <script>
+                    $(document).ready(function(){
+
+                    $('.menu-icon').on('click', function(){
+                        $('.mobile-menu').slideToggle();
+                    });
+                    });
+                </script>
+            </div>
+
             <div class="content">
                 <div class="top">
                     <h2>Szia, Én <span>Szilágyi Dániel</span> vagyok! 👋</h2>
