@@ -56,7 +56,7 @@ body{
     font-size: 20px;
 }
 
-.technologies .icons{
+/*.technologies .icons{
     width: 420px;
     height: 120px;
     display: flex;
@@ -74,14 +74,14 @@ body{
     width: 50px;
     height: 50px;
     border-radius: 10px;
-}
+}*/
 
-.technologies .icons .item i{
+/*.technologies .icons .item i{
     font-size: 34px;
     color: #fff;
-}
+}*/
 
-.item {
+.item .icon {
     background-color: #383e45;
     padding: 5px;
     border-radius: 5px;
@@ -93,11 +93,50 @@ body{
     align-items: center;
     flex-direction: column;
 }
+.hr {
+    width:50%; 
+    margin-left:25% !important; 
+    margin-right:25% !important; 
+    border-color:rgb(44, 38, 38);
+    border: 0px .4px 0px .4px;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    align-items: center;
+    background-color: #383e4597;
+    border-radius: 5px;
+    overflow: hidden;
+}
 .icons {
     background-color: #383e4597;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
     border-radius: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.item {
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    box-sizing: border-box;
+}
+
+.item p {
+    margin-left: 10px;
+    font-size: 16px;
+    flex-grow: 1; /* A szöveg kitölti az elérhető teret */
+}
+
+.item i {
+    font-size: 2em;
 }
