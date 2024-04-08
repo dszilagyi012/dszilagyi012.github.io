@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Csanytelek.hu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css'>
+    <meta name="og:title" content="Csanytelek">
+    <meta name="og:description" content="Csanytelek Község Weboldala">
+    <meta name="og:image" content="assets/img/banner.jpg">
+    <meta name="og:url" content="https://csanytelek.hu">
+    <meta name="og:site_name" content="Csanytelek">
+    <meta name="og:type" content="website">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    <link rel="manifest" href="assets/json/manifest.json">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px #fff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: -webkit-linear-gradient(bottom, #12326e, #03194d);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: -webkit-linear-gradient(top, #12326e, #03194d);
+        }
+
+        nav {
+            position: fixed;
+            display: flex;
+            height: 60px;
+            width: 100%;
+            z-index: 1;
+            background: -webkit-linear-gradient(left, #12326e, #03194d);
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px 0 100px;
+            flex-wrap: wrap;
+        }
+
+        nav .logo {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 5px;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            position: relative;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #98bbdc;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        nav .menu-btn i {
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        nav ul li a.active {
+            background: none;
+            color: cyan;
+        }
+
+        .dropdown-menu {
+            display: block;
+            position: absolute;
+            background: -webkit-linear-gradient(left, #12326e, #03194d);
+            width: max-content;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            padding: 10px 0;
+            margin-top: 25px;
+            border-radius: .45rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dropdown-menu.active {
+            opacity: 1;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fullScreenDiv {
+            min-height: 100%;
+            height: 100vh;
+            width: 100vw;
+            background-color: gray;
+            position: relative;
+        }
+
+        .hero .fullScreenDiv video {
+            width: 100vw;
+            height: auto;
+            margin: auto;
+            display: block !important;
+            padding: 0 !important;
+        }
+
+        @media (min-aspect-ratio: 16/9) {
+            .hero .fullScreenDiv video {
+                width: 100vw;
+                height: auto;
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            .hero .fullScreenDiv video {
+                height: 100vh;
+                width: auto;
+                margin-left: 50vw;
+                transform: translate(-50%);
+            }
+        }
+
+        .hero .hero-content {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Eltávolítjuk az alábbi stílusokat, hogy a Bootstrap oszlopokat tudjuk használni */
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-10,
+        .col-11,
+        .col-12 {
+            width: auto;
+        }
+
+        /* Hozzáadjuk a Bootstrap által használt osztályokat a .col és .row osztályokhoz */
+        @media screen and (max-width: 950px) {
+            .col {
+                flex-basis: 0;
+                flex-grow: 1;
+                max-width: 100%;
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                margin-right: -15px;
+                margin-left: -15px;
+            }
+        }
+
+        .row:not(.no-gutters) {
+            display: flex;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .content .container {
+            display: grid;
+            gap: 50px;
+        }
+
+        footer {
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 50px 50px 20px 50px;
+            background: -webkit-linear-gradient(left, #12326e, #03194d);
+        }
+
+        footer .container {
+            text-align: center;
+            width: 100%;
+        }
+
+        footer .row {
+            justify-content: center;
+        }
+
+        footer a {
+            color: #fff;
+        }
+
+        @media (max-width: 1000px) {
+            nav {
+                padding: 0 10px 0 10px;
+            }
+        }
+
+        @media (max-width: 950px) {
+            .hero {
+                width: 102vw;
+            }
+
+            .dropdown-menu {
+                display: none;
+                opacity: 1;
+            }
+
+            .dropdown-menu.active {
+                display: block;
+                height: 100vh;
+            }
+
+            nav ul li a {
+                transition: all .3s;
+            }
+
+            nav ul li a:hover {
+                color: cyan;
+            }
+
+            nav ul li a::after {
+                background-color: #98bbdc00;
+            }
+
+            nav .menu-btn i {
+                display: block;
+            }
+
+            #click:checked~.menu-btn i:before {
+                content: "\f00d";
+            }
+
+            nav ul {
+                margin-top: -20px;
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: -webkit-linear-gradient(left, #12326e, #03194d);
+                height: 100vh;
+                width: 100%;
+                text-align: center;
+                display: block;
+                transition: all 0.3s ease;
+            }
+
+            #click:checked~ul {
+                left: 0;
+            }
+
+            nav ul li {
+                width: 100%;
+                margin: 40px 0;
+            }
+
+            nav ul li a {
+                width: 100%;
+                margin-left: -100%;
+                display: block;
+                font-size: 20px;
+
+            }
+
+            #click:checked~ul li a {
+                margin-left: 0px;
+            }
+
+            .dropdown-menu {
+                height: max-content;
+                width: 100%;
+                padding: 0;
+            }
+
+            .dropdown-menu.active {
+                margin-top: 45px;
+                top: 0;
+            }
+
+            .dropdown-menu li {
+                margin: 5px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar" data-aos="fade-down" data-aos-delay="300" data-aos-duration="500">
+        <div class="logo">
+            <img src="assets/img/cimer.png" width="35">
+            Csanytelek
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a class="nav-link active" href="#">Főoldal</a></li>
+            <li class="dropdown">
+                <a class="nav-link" href="#">Bemutatkozás <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Településünk története</a></li>
+                    <li><a href="#">Közérdekű információk</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="nav-link" href="#">Önkormányzat <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Képviselő testület</a></li>
+                    <li><a href="#">Polgármester</a></li>
+                    <li><a href="#">Alpolgármester</a></li>
+                    <li><a href="#">Lakossági tájékoztatások</a></li>
+                    <li><a href="#">Ügytípusok, letölthető nyomtatványok</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="nav-link" href="#">Roma Nemzetiségi Önkormányzat <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Képviselő testület</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="nav-link" href="#">ATMÖT <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Bemutatkozás</a></li>
+                    <li><a href="#">Társulási ülések</a></li>
+                    <li><a href="#">Intézményfenntartás</a></li>
+                    <li><a href="#">Letölthető dokumentumok</a></li>
+                    <li><a href="#">Pályázatok</a></li>
+                    <li><a href="#">Kapcsolat</a></li>
+                </ul>
+            </li>
+            <li><a class="nav-link" href="#">Faluház</a></li>
+            <li><a class="nav-link" href="#">E-Ügyintézés</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-12">
+                <div class="hero" data-aos="zoom-in">
+                    <div class="fullScreenDiv">
+                        <div class="weather-widget" id="weather-widget">
+
+                        </div>
+                        <video role="presentation" preload="auto" playsinline="" crossorigin="anonymous" loop=""
+                            muted="" autoplay="" class="blur">
+                            <source
+                                src="https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Big_Buck_Bunny_4K.webm/Big_Buck_Bunny_4K.webm.720p.vp9.webm"
+                                type="video/mp4">
+                        </video>
+                        <div class="hero-content">
+                            <h1>Köszöntjük Csanytelek weboldalán!</h1>
+                            <p>Magyarország leghosszabb falujának honlapján!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="content py-5">
+        <div class="grid-systems container">
+            <div class="row">
+                <div class="col-6 aos-init aos-animate" data-aos="fade-up">
+                    <h2>Polgármester</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus alias voluptatum culpa odio,
+                        ipsam esse fuga ut nam in est totam sint a qui? Nulla laborum voluptate quae nihil sed.</p>
+                    <a class="btn btn-outline-warning" href="" style="width: 100%;">Tovább →</a>
+                </div>
+                <div class="col-6 aos-init aos-animate" data-aos="fade-left" data-aos-delay="600">
+                    <img src="https://external.fbud10-1.fna.fbcdn.net/emg1/v/t13/1996391923406607847?url=https%3A%2F%2F82nullanulla.hu%2Ffiles%2F1%2Fd%2F1d19c1ed8562871489591fa1e70d084d.jpg&fb_obo=1&utld=82nullanulla.hu&stp=c0.5000x0.5000f_dst-jpg_flffffff_p500x261_q75&ccb=13-1&oh=06_Q399ZxdvH3ZuufKazveBo9DjRnfSdKWZGzGoz85Hqlk9pT0&oe=6614DA4B&_nc_sid=c97757"
+                        class="img-fluid rounded shadow">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="0">
+                    <h2>Italaink</h2>
+                    <p>Apró vonatok hozzák az italodat az étterem legeldugottabb zugába is!Italaink kiváló minőségű
+                        alapanyagokból készülnek, és a legfrissebb ízeket kínálják vendégeinknek. Bármilyen alkalomra
+                        vagy ízlésre is keres italt, éttermünkben garantáltan megtalálja a tökéletes választást.
+                        Válogatott boraink, frissítő koktéljaink és finom kávéink minden igényt kielégítenek, és
+                        hozzájárulnak az étkezés élményéhez. Fedezze fel italaink változatos kínálatát, és élvezze az
+                        ízek gazdagságát és harmóniáját!</p>
+                </div>
+                <div class="col-4 aos-init aos-animate" data-aos="fade-right" data-aos-delay="600">
+                    <img src="assets/img/pwa.png" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark text-light py-4" data-aos="fade-up" data-aos-anchor-placement="center-bottom"
+        class="aos-init">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-3">
+                    <p><strong>Viking Lángos</strong></p>
+                    <p><a href="https://maps.app.goo.gl/PWJCQz5RAdzvmycp7" target="_blank">6753 Szeged, Szirom u.
+                            32.</a></p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Elérhetőségek:</strong></p>
+                    <p>Enikő: <a href="tel:+3620 292 5059">+3620 292 5059</a></p>
+                    <p>Károly: <a href="tel:+3620 292 4926">+3620 292 4926</a></p>
+                </div>
+                <div class="col-md-2">
+                    <p><strong>Közösségi média:</strong></p>
+                    <a href="mailto:info@palyaudvar.hu" target="_blank" class="text-light me-3"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/vasutmodelletterem" target="_blank" class="text-light me-3"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/palyaudvar_lakasetterem/" target="_blank"
+                        class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@palyaudvar" target="_blank" class="text-light me-3"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@palyaudvar-railgarden" target="_blank" class="text-light"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2024 Viking Lángos. Minden jog fenntartva.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdownToggles = document.querySelectorAll('.dropdown > a');
+            dropdownToggles.forEach(function (toggle) {
+                toggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const dropdownMenu = this.nextElementSibling;
+                    dropdownMenu.classList.toggle('active');
+                });
+            });
+        });
+        AOS.init();
+    </script>
+</body>
+
+</html>
