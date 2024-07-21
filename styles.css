@@ -28,12 +28,7 @@ header {
     padding: 1rem 0;
 }
 
-.navbar title {
-    display: flex;
-    align-items: center;
-}
-
-header h1 {
+.navbar h1 {
     margin: 0;
     font-size: 1.5rem;
 }
@@ -154,7 +149,12 @@ section:not(.hero) {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transform: translateY(50px);
-    animation: fadeInUp 1s ease forwards;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .services,

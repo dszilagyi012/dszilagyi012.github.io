@@ -1,7 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const sections = document.querySelectorAll('section');
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+
+    // Hamburger menü kattintás kezelése
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // IntersectionObserver az animációkhoz
+    const sections = document.querySelectorAll('section');
 
     const observerOptions = {
         threshold: 0.25
@@ -10,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
@@ -19,10 +26,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     sections.forEach(section => {
         observer.observe(section);
-    });
-
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
     });
 });
