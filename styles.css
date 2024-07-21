@@ -33,6 +33,11 @@ header h1 {
     font-size: 1.5rem;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -54,6 +59,21 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #bb86fc;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 .hero {
@@ -151,6 +171,41 @@ footer {
     text-align: center;
     padding: 1rem 0;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 870px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #6200ea;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        gap: 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+    }
 }
 
 /* Animations */
