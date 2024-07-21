@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative WebStúdió</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .hero button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #2ecc71;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .services,
+        .references,
+        .about,
+        .contact {
+            margin-bottom: 3rem;
+        }
+
+        .services h2,
+        .references h2,
+        .about h2,
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .services p,
+        .references p,
+        .about p,
+        .contact p {
+            font-size: 1rem;
+            color: #34495e;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Creative WebStúdió</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Főoldal</a></li>
+                <li><a href="#services">Szolgáltatások</a></li>
+                <li><a href="#references">Referenciák</a></li>
+                <li><a href="#about">Rólunk</a></li>
+                <li><a href="#contact">Kapcsolat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Kreatív megoldások, egyedi weboldalak</h1>
+        <p>Professzionális weboldal készítés a te igényeid szerint</p>
+        <button>Kérj ajánlatot</button>
+    </section>
+
+    <div class="container">
+        <section id="services" class="services">
+            <h2>Szolgáltatások</h2>
+            <p>Reszponzív weboldalak, egyedi dizájn, e-kereskedelmi megoldások, és még sok más.</p>
+        </section>
+
+        <section id="references" class="references">
+            <h2>Referenciák</h2>
+            <p>Kiemelkedő munkáink és elégedett ügyfeleink véleményei.</p>
+        </section>
+
+        <section id="about" class="about">
+            <h2>Rólunk</h2>
+            <p>Ismerd meg a csapatot és a küldetésünket.</p>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Kapcsolat</h2>
+            <p>Elérhetőségeink és kapcsolatfelvételi űrlap.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Creative WebStúdió. Minden jog fenntartva.</p>
+    </footer>
+</body>
+
+</html>
