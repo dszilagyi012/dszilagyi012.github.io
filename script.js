@@ -1,30 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+// script.js
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll('section:not(.hero)');
 
-    // Hamburger menü kattintás kezelése
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-
-    // IntersectionObserver az animációkhoz
-    const sections = document.querySelectorAll('section');
-
-    const observerOptions = {
-        threshold: 0.25
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, {
+        threshold: 0.1
+    });
 
     sections.forEach(section => {
         observer.observe(section);
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 });
