@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Március 15</title>
+    <style>
+        /* new header */
+        .national-nav {
+            position: relative;
+            height: 8px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .national-nav::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                #cd2a3e 0%,
+                #cd2a3e 33.33%,
+                #ffffff 33.33%,
+                #ffffff 66.66%,
+                #436f4d 66.66%,
+                #436f4d 100%
+            );
+        }
+
+        /* Frissített fejléc */
+        .header {
+            background: linear-gradient(160deg, #cd2a3e 0%, #8a1a27 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: headerEntry 1s ease-out;
+        }
+
+        @keyframes headerEntry {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin: 0 0 1rem;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+      /* old styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .speech-bubble {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .speech-bubble::before {
+            content: "❝";
+            font-size: 4rem;
+            color: #cd2a3e;
+            position: absolute;
+            left: 10px;
+            top: -15px;
+        }
+
+        .memorial-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                padding: 10px;
+            }
+            .speech-bubble {
+                padding: 1rem;
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="national-nav"></div>
+
+    <div class="header">
+        <h1>1848–49-es Forradalom<br>és Szabadságharc</h1>
+        <p class="subtitle">Március 15. - A szabadság napja</p>
+    </div>
+
+    <div class="content">
+        <div class="speech-bubble">
+            <p>Március 15-e az 1848–49-es forradalom és szabadságharc kezdete, időnként március idusaként is emlegetik e napot. 1848. március 15-én a magyar emberek kokárdát tűznek a ruhájukra, és az épületeken is magyar zászlót lenget a szél. Minden településen megemlékeznek az 1848-as forradalom és szabadságharc kiemelkedő hőseiről, megkoszorúzzák 48-as emlékműveket, szobrokat.</p>
+        </div>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Pilvax_Pest_Preiszler.jpg" alt="1848-as forradalom" class="memorial-image">
+    </div>
+
+    <footer>
+        <p>„A nemzet önmagát mindig újjáteremti.” - Petőfi Sándor</p>
+    </footer>
+</body>
+</html>
